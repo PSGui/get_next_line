@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsaladri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 15:39:22 by gsaladri          #+#    #+#             */
-/*   Updated: 2023/10/27 15:39:23 by gsaladri         ###   ########.fr       */
+/*   Created: 2023/11/21 15:52:07 by gsaladri          #+#    #+#             */
+/*   Updated: 2023/11/21 15:52:15 by gsaladri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+
+#include "get_next_line_bonus.h"
 
 static char	*ft_open(int fd, char *pointer)
 {
@@ -37,7 +38,7 @@ static char	*ft_open(int fd, char *pointer)
 	return (pointer);
 }
 
-static char	*ft_line_trim(char *pointer)
+static char	*ft_line_copy(char *pointer)
 {
 	int		i;
 	char	*buff_help;
@@ -93,35 +94,17 @@ static char	*ft_pointer_update(char *pointer)
 
 char	*get_next_line(int fd)
 {
-	static char	*pointer;
+	static char	*pointer[MAX_FD];
 	char		*linha;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	pointer = ft_open(fd, pointer);
-	if (!pointer)
+	pointer[fd] = ft_open(fd, pointer[fd]);
+	if (!pointer[fd])
 	{
 		return (NULL);
 	}
-	linha = ft_line_trim(pointer);
-	pointer = ft_pointer_update(pointer);
+	linha = ft_line_copy(pointer[fd]);
+	pointer[fd] = ft_pointer_update(pointer[fd]);
 	return (linha);
 }
-
-/*
-int	main(void)
-{
-	int fd = open("get_next_line.h", O_RDONLY);
-	char	*line1;
-
-	if (fd < 0)
-		return (0);
-	while ((line1 = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line1);
-		free(line1);
-	}
-	close(fd);
-	return (0);
-}
-*/

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsaladri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 15:52:41 by gsaladri          #+#    #+#             */
-/*   Updated: 2023/11/21 15:52:42 by gsaladri         ###   ########.fr       */
+/*   Created: 2023/11/21 15:55:40 by gsaladri          #+#    #+#             */
+/*   Updated: 2023/11/21 15:55:41 by gsaladri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	*ft_bzero(void *ptr, size_t x)
 {
@@ -43,9 +43,9 @@ int	ft_strchr(char *str, char c)
 {
 	int	i;
 
+	i = 0;
 	if (!str)
 		return (0);
-	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == c)
