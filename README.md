@@ -5,3 +5,5 @@ Memory allocation had a big importance in this project and a lot of time was use
 
 The bonus part was to make sure that my code would be able to read from multiple file descriptors meaning that it would read the first line from the 1st file then the 1st line from the 2nd and so on.
 The project was graded 125/100
+
+If you want to test your code and are having difficulties with the main function make sure to check out my files and have a go at them!
