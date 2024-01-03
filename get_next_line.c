@@ -108,10 +108,9 @@ char	*get_next_line(int fd)
 	return (linha);
 }
 
-/*
 int	main(void)
 {
-	int fd = open("get_next_line.h", O_RDONLY);
+	int	fd = open("file1.txt", O_RDONLY);
 	char	*line1;
 
 	if (fd < 0)
@@ -124,4 +123,4 @@ int	main(void)
 	close(fd);
 	return (0);
 }
-*/
+

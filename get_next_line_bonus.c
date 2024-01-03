@@ -108,3 +108,37 @@ char	*get_next_line(int fd)
 	pointer[fd] = ft_pointer_update(pointer[fd]);
 	return (linha);
 }
+
+int        main(void)
+{
+	int	i;
+        int	fd1 = open("file1.txt", O_RDONLY);
+        int	fd2 = open("file2.txt", O_RDONLY);
+        int	fd3 = open("file3.txt", O_RDONLY);
+        char	*line;
+
+        i = 1;
+        while (i < 22)
+        {
+                line = get_next_line(fd1);
+                printf("fd_1 %2d| %s", i, line);
+                if (!line)
+                        printf("\n");
+                free(line);
+                line = get_next_line(fd2);
+                printf("fd_2 %2d| %s", i, line);
+                if (!line)
+                        printf("\n");
+                free(line);
+                line = get_next_line(fd3);
+                printf("fd_3 %2d| %s", i, line);
+                if (!line)
+                        printf("\n");
+                free(line);
+                ++i;
+        }
+        close(fd1);
+        close(fd2);
+        close(fd3);
+        return (0);
+}
